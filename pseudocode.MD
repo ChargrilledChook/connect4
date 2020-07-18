@@ -11,3 +11,26 @@
 * Check if game is drawn
   * Repeat substep above
 * Otherwise, repeat steps beginning from CORE LOOP with the opposite player
+
+## Api sketch
+
+### Board
+
+* Grid co-ordinates
+* Human readable format
+* Check win / draw conditions
+
+### Player
+
+* Name
+* Symbol
+* Get input
+
+### Game
+
+* Inject board and player dependencies
+* Begin menu
+* End menu
+* Help / rules
+* Play round
+* Play game
