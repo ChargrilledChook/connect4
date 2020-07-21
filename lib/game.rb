@@ -1,3 +1,4 @@
+# Holds other objects, responsible for playing a game of connect 4
 class Game
   attr_accessor :board
   attr_reader :p1, :p2
@@ -22,7 +23,7 @@ class Game
   def new_game
     self.board = Board.new
     board.draw_grid
-    current_player = p1
+    _current_player = p1
     # until game_over? do
       # play_round(current_player)
       # current_player = swap_player
@@ -39,7 +40,7 @@ class Game
   end
 
   def game_over?
-    #board.won? || board.drawn?
+    # #board.won? || board.drawn?
   end
 
   def swap_player(player)
