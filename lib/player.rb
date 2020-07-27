@@ -7,7 +7,13 @@ class Player
     @symbol = symbol
   end
 
-  def input
-    gets.chomp
+  def input_move
+    puts "#{name}, you're up!"
+    result = gets.chomp
+    until (0..6).include?(result.to_i)
+      puts "Enter a valid move, #{name}!"
+      result = gets.chomp
+    end
+    result
   end
 end
