@@ -25,8 +25,8 @@ class Game
     board.draw_grid
     _current_player = p1
     # until game_over? do
-      # play_round(current_player)
-      # current_player = swap_player
+    # play_round(current_player)
+    # current_player = swap_player
     # end
     # ending
   end
@@ -36,7 +36,6 @@ class Game
     # check / get input until it's right
     # update board data
     # redraw board
-
   end
 
   def game_over?
