@@ -2,6 +2,17 @@ require 'minitest/autorun'
 require_relative '../lib/board'
 
 class BoardTest < Minitest::Test
+  def test_initializes_correct_default
+    expected = [[0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0]]
+
+    assert_equal expected, Board.new.grid
+  end
+
   def test_win_on_empty_board
     player = 'X'
     expected = false
@@ -376,15 +387,4 @@ class BoardTest < Minitest::Test
 
     assert_equal expected, board.input_move(1, player)
   end
-end
-
-
-
-def empty_grid
-  [[0, 0, 0, 0, 0, 0, 0],
-   [0, 0, 0, 0, 0, 0, 0],
-   [0, 0, 0, 0, 0, 0, 0],
-   [0, 0, 0, 0, 0, 0, 0],
-   [0, 0, 0, 0, 0, 0, 0],
-   [0, 0, 0, 0, 0, 0, 0]]
 end
