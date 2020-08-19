@@ -1,6 +1,5 @@
 # Holds data about gamestate
 class Board
-  attr_reader :grid_marker
   attr_accessor :grid
 
   DIAG_LINES = [[[0, 0], [1, 1], [2, 2], [3, 3], [4, 4], [5, 5]],
@@ -21,11 +20,15 @@ class Board
 
   def draw_grid
     grid.each_index { |line| p grid[line] }
-    p grid_marker
+    p @grid_marker
   end
 
   def game_won?(player)
-    horizontal_win?(player) || vertical_win?(player)
+    horizontal_win?(player) || vertical_win?(player) || diag_win_right?(player) || diag_win_left?(player)
+  end
+
+  def input_move(column, player)
+    grid.transpose[column - 1].reverse[0] = player
   end
 
   private
@@ -36,5 +39,13 @@ class Board
 
   def vertical_win?(player)
     @grid.transpose.any? { |line| line.join.include?(player * 4) }
+  end
+
+  def diag_win_right?(player)
+    DIAG_LINES.map { |line| line.map { |x, y| grid[x][y] } }.any? { |line| line.join.include?(player * 4) }
+  end
+
+  def diag_win_left?(player)
+    DIAG_LINES.map { |line| line.map { |x, y| grid.reverse[x][y] } }.any? { |line| line.join.include?(player * 4) }
   end
 end
