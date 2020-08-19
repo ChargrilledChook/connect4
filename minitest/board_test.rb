@@ -17,8 +17,8 @@ class BoardTest < Minitest::Test
                   [0, 0, 0, 0, 0, 0, 0],
                   [0, 0, 0, 0, 0, 0, 0],
                   [0, 0, 0, 0, 0, 0, 0],
-                  [0, 0, 0, 'O', 'X', 0, 0],
-                  [0, 'O', 'X', 'X', 'X', 'O', 0]]
+                  [0, 0, 0, 'Q', 'X', 0, 0],
+                  [0, 'Q', 'X', 'X', 'X', 'Q', 0]]
 
     assert_equal expected, board.game_won?(player)
   end
@@ -31,8 +31,8 @@ class BoardTest < Minitest::Test
                   [0, 0, 0, 0, 0, 0, 0],
                   [0, 0, 0, 0, 0, 0, 0],
                   [0, 0, 0, 0, 0, 0, 0],
-                  [0, 0, 0, 'O', 'X', 0, 0],
-                  [0, 'O', 'X', 'X', 'X', 0, 'X']]
+                  [0, 0, 0, 'Q', 'X', 0, 0],
+                  [0, 'Q', 'X', 'X', 'X', 0, 'X']]
 
     assert_equal expected, board.game_won?(player)
   end
@@ -45,8 +45,8 @@ class BoardTest < Minitest::Test
                   [0, 0, 0, 0, 0, 0, 0],
                   [0, 0, 0, 0, 0, 0, 0],
                   [0, 0, 0, 0, 0, 0, 0],
-                  [0, 0, 0, 'O', 'O', 0, 0],
-                  [0, 'X', 'X', 'X', 'X', 'O', 0]]
+                  [0, 0, 0, 'Q', 'Q', 0, 0],
+                  [0, 'X', 'X', 'X', 'X', 'Q', 0]]
 
     assert_equal expected, board.game_won?(player)
   end
@@ -55,12 +55,12 @@ class BoardTest < Minitest::Test
     player = '0'
     expected = true
     board = Board.new
-    board.grid = [[0, 'O', 'O', 'O', 'O', 0, 0],
+    board.grid = [[0, 'Q', 'Q', 'Q', 'Q', 0, 0],
                   [0, 0, 0, 0, 0, 0, 0],
                   [0, 0, 0, 0, 0, 0, 0],
                   [0, 0, 0, 0, 0, 0, 0],
-                  [0, 0, 0, 'O', 'O', 0, 0],
-                  [0, 'X', 'X', 'X', '0', 'O', 0]]
+                  [0, 0, 0, 'Q', 'Q', 0, 0],
+                  [0, 'X', 'X', 'X', '0', 'Q', 0]]
 
     assert_equal expected, board.game_won?(player)
   end
@@ -69,54 +69,54 @@ class BoardTest < Minitest::Test
     player = 'X'
     expected = true
     board = Board.new
-    board.grid = [[0, 0, 'O', 'O', 'O', 0, 0],
+    board.grid = [[0, 0, 'Q', 'Q', 'Q', 0, 0],
                   ['X', 0, 0, 0, 0, 0, 0],
                   ['X', 0, 0, 0, 0, 0, 0],
                   ['X', 0, 0, 0, 0, 0, 0],
-                  ['X', 0, 0, 'O', 'O', 0, 0],
-                  [0, 'X', 'X', 'X', '0', 'O', 0]]
+                  ['X', 0, 0, 'Q', 'Q', 0, 0],
+                  [0, 'X', 'X', 'X', '0', 'Q', 0]]
 
     assert_equal expected, board.game_won?(player)
   end
 
   def test_vertical_win2
-    player = 'O'
+    player = 'Q'
     expected = true
     board = Board.new
     board.grid = [[0, 0, 0, 0, 0, 0, 0],
                   [0, 0, 0, 0, 0, 0, 0],
-                  [0, 0, 0, 'O', 0, 0, 0],
-                  [0, 0, 0, 'O', 0, 0, 0],
-                  [0, 0, 0, 'O', 0, 0, 0],
-                  [0, 0, 0, 'O', 0, 0, 0]]
+                  [0, 0, 0, 'Q', 0, 0, 0],
+                  [0, 0, 0, 'Q', 0, 0, 0],
+                  [0, 0, 0, 'Q', 0, 0, 0],
+                  [0, 0, 0, 'Q', 0, 0, 0]]
 
     assert_equal expected, board.game_won?(player)
   end
 
   def test_vertical_not_won1
-    player = 'O'
+    player = 'Q'
     expected = false
     board = Board.new
     board.grid = [[0, 0, 0, 0, 0, 0, 0],
-                  [0, 0, 0, 'O', 0, 0, 0],
+                  [0, 0, 0, 'Q', 0, 0, 0],
                   [0, 0, 0, 'X', 0, 0, 0],
-                  [0, 0, 0, 'O', 0, 0, 0],
-                  [0, 0, 0, 'O', 0, 0, 0],
-                  [0, 0, 0, 'O', 0, 0, 0]]
+                  [0, 0, 0, 'Q', 0, 0, 0],
+                  [0, 0, 0, 'Q', 0, 0, 0],
+                  [0, 0, 0, 'Q', 0, 0, 0]]
 
     assert_equal expected, board.game_won?(player)
   end
 
   def test_vertical_not_won2
-    player = 'O'
+    player = 'Q'
     expected = false
     board = Board.new
     board.grid = [[0, 0, 0, 0, 0, 0, 0],
-                  [0, 0, 0, 'O', 0, 0, 0],
+                  [0, 0, 0, 'Q', 0, 0, 0],
                   [0, 0, 0, 0, 0, 0, 0],
-                  [0, 0, 0, 'O', 0, 0, 0],
-                  [0, 0, 0, 'O', 0, 0, 0],
-                  [0, 0, 0, 'O', 0, 0, 0]]
+                  [0, 0, 0, 'Q', 0, 0, 0],
+                  [0, 0, 0, 'Q', 0, 0, 0],
+                  [0, 0, 0, 'Q', 0, 0, 0]]
 
     assert_equal expected, board.game_won?(player)
   end
@@ -198,15 +198,15 @@ class BoardTest < Minitest::Test
 
   def test_diag_won_left1
     # skip
-    player = 'O'
+    player = 'Q'
     expected = true
     board = Board.new
     board.grid = [[0, 0, 0, 0, 0, 0, 0],
                   [0, 0, 0, 0, 0, 0, 0],
-                  [0, 0, 0, 'O', 0, 0, 0],
-                  [0, 0, 'O', 0, 0, 0, 0],
-                  [0, 'O', 0, 0, 0, 0, 0],
-                  ['O', 0, 0, 0, 0, 0, 0]]
+                  [0, 0, 0, 'Q', 0, 0, 0],
+                  [0, 0, 'Q', 0, 0, 0, 0],
+                  [0, 'Q', 0, 0, 0, 0, 0],
+                  ['Q', 0, 0, 0, 0, 0, 0]]
 
     assert_equal expected, board.game_won?(player)
   end
@@ -241,7 +241,7 @@ class BoardTest < Minitest::Test
     assert_equal expected, board.game_won?(player)
   end
 
-  def test_input_move
+  def test_input_move_bottom_row
     player = 'X'
     board = Board.new
     expected = [[0, 0, 0, 0, 0, 0, 0],
@@ -250,6 +250,129 @@ class BoardTest < Minitest::Test
                 [0, 0, 0, 0, 0, 0, 0],
                 [0, 0, 0, 0, 0, 0, 0],
                 ['X', 0, 0, 0, 0, 0, 0]]
+
+    board.input_move(1, player)
+
+    assert_equal expected, board.grid
+  end
+
+  def test_successful_move_returns_true
+    player = 'X'
+    board = Board.new
+    expected = true
+
+    assert_equal expected, board.input_move(1, player)
+  end
+
+  def test_input_move_stacked1
+    player1 = 'X'
+    player2 = 'Q'
+    board = Board.new
+    expected = [[0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0],
+                ['Q', 0, 0, 0, 0, 0, 0],
+                ['X', 0, 0, 0, 0, 0, 0]]
+
+    board.input_move(1, player1)
+    board.input_move(1, player2)
+
+    assert_equal expected, board.grid
+  end
+
+  def test_another_simple_move
+    player1 = 'X'
+    player2 = 'Q'
+    board = Board.new
+    expected = [[0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0],
+                ['Q', 0, 0, 0, 0, 0, 0],
+                ['X', 0, 0, 0, 0, 0, 'X']]
+
+    board.input_move(1, player1)
+    board.input_move(1, player2)
+    board.input_move(7, player1)
+
+    assert_equal expected, board.grid
+  end
+
+  def test_input_move_stacked2
+    player1 = 'X'
+    player2 = 'Q'
+    board = Board.new
+    expected = [[0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0],
+                ['Q', 0, 0, 0, 0, 0, 0],
+                ['Q', 0, 0, 0, 0, 0, 0],
+                ['X', 0, 0, 0, 0, 0, 'X']]
+
+    board.input_move(1, player1)
+    board.input_move(1, player2)
+    board.input_move(7, player1)
+    board.input_move(1, player2)
+
+    assert_equal expected, board.grid
+  end
+
+  def test_top_row_move
+    player = 'X'
+    board = Board.new
+    board.grid = [[0, 0, 0, 0, 0, 0, 0],
+                  ['X', 0, 0, 0, 0, 0, 0],
+                  ['Q', 0, 0, 0, 0, 0, 0],
+                  ['Q', 0, 0, 0, 0, 0, 0],
+                  ['Q', 0, 0, 0, 0, 0, 0],
+                  ['X', 0, 0, 0, 0, 0, 0]]
+
+    expected =    [['X', 0, 0, 0, 0, 0, 0],
+                   ['X', 0, 0, 0, 0, 0, 0],
+                   ['Q', 0, 0, 0, 0, 0, 0],
+                   ['Q', 0, 0, 0, 0, 0, 0],
+                   ['Q', 0, 0, 0, 0, 0, 0],
+                   ['X', 0, 0, 0, 0, 0, 0]]
+
+    board.input_move(1, player)
+
+    assert_equal expected, board.grid
+  end
+
+  def test_column_full_no_change
+    player = 'X'
+    board = Board.new
+    board.grid = [['X', 0, 0, 0, 0, 0, 0],
+                  ['X', 0, 0, 0, 0, 0, 0],
+                  ['Q', 0, 0, 0, 0, 0, 0],
+                  ['Q', 0, 0, 0, 0, 0, 0],
+                  ['Q', 0, 0, 0, 0, 0, 0],
+                  ['X', 0, 0, 0, 0, 0, 0]]
+
+    expected =    [['X', 0, 0, 0, 0, 0, 0],
+                   ['X', 0, 0, 0, 0, 0, 0],
+                   ['Q', 0, 0, 0, 0, 0, 0],
+                   ['Q', 0, 0, 0, 0, 0, 0],
+                   ['Q', 0, 0, 0, 0, 0, 0],
+                   ['X', 0, 0, 0, 0, 0, 0]]
+
+    board.input_move(1, player)
+
+    assert_equal expected, board.grid
+  end
+
+  def test_move_return_false_if_column_full
+    player = 'X'
+    board = Board.new
+    board.grid = [['X', 0, 0, 0, 0, 0, 0],
+                  ['X', 0, 0, 0, 0, 0, 0],
+                  ['Q', 0, 0, 0, 0, 0, 0],
+                  ['Q', 0, 0, 0, 0, 0, 0],
+                  ['Q', 0, 0, 0, 0, 0, 0],
+                  ['X', 0, 0, 0, 0, 0, 0]]
+
+    expected = false
 
     assert_equal expected, board.input_move(1, player)
   end

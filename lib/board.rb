@@ -9,13 +9,15 @@ class Board
                 [[1, 0], [2, 1], [3, 2], [4, 3], [5, 4]],
                 [[2, 0], [3, 1], [4, 2], [5, 3]]].freeze
 
+  EMPTY_CELL = 0
+
   def initialize
     @grid = build_grid
     @grid_marker = Array(1..7)
   end
 
   def build_grid
-    Array.new(6) { Array.new(7, 0) }
+    Array.new(6) { Array.new(7, EMPTY_CELL) }
   end
 
   def draw_grid
@@ -27,8 +29,18 @@ class Board
     horizontal_win?(player) || vertical_win?(player) || diag_win_right?(player) || diag_win_left?(player)
   end
 
+  # Updates the grid with a drop down move. Will return true if succesful and false otherwise
   def input_move(column, player)
-    grid.transpose[column - 1].reverse[0] = player
+    idx = 1
+    placed = false
+    until placed || idx > 6
+      if grid[-idx][column - 1] == EMPTY_CELL
+        grid[-idx][column - 1] = player
+        placed = true
+      end
+      idx += 1
+    end
+    placed
   end
 
   private
