@@ -3,6 +3,8 @@ class Game
   attr_accessor :board
   attr_reader :p1, :p2
 
+  Player = Struct.new(:name, :symbol)
+
   def initialize
     @p1 = Player.new('Player 1', 'X')
     @p2 = Player.new('Player 2', 'O')
