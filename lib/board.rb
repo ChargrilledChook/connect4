@@ -11,6 +11,9 @@ class Board
 
   EMPTY_CELL = 0
 
+  # Amount of tokens in a row required to win
+  WIN = 4
+
   def initialize
     @grid = build_grid
     @grid_marker = Array(1..7)
@@ -46,18 +49,18 @@ class Board
   private
 
   def horizontal_win?(player)
-    @grid.any? { |line| line.join.include?(player * 4) }
+    @grid.any? { |line| line.join.include?(player * WIN) }
   end
 
   def vertical_win?(player)
-    @grid.transpose.any? { |line| line.join.include?(player * 4) }
+    @grid.transpose.any? { |line| line.join.include?(player * WIN) }
   end
 
   def diag_win_right?(player)
-    DIAG_LINES.map { |line| line.map { |x, y| grid[x][y] } }.any? { |line| line.join.include?(player * 4) }
+    DIAG_LINES.map { |line| line.map { |x, y| grid[x][y] } }.any? { |line| line.join.include?(player * WIN) }
   end
 
   def diag_win_left?(player)
-    DIAG_LINES.map { |line| line.map { |x, y| grid.reverse[x][y] } }.any? { |line| line.join.include?(player * 4) }
+    DIAG_LINES.map { |line| line.map { |x, y| grid.reverse[x][y] } }.any? { |line| line.join.include?(player * WIN) }
   end
 end
