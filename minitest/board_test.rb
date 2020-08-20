@@ -387,4 +387,32 @@ class BoardTest < Minitest::Test
 
     assert_equal expected, board.input_move(1, player)
   end
+
+  def test_game_is_not_tied
+    board = Board.new
+    board.grid = [['M', 'X', 0, 'M', 0, 'Z', 0],
+                  ['Z', 'X', 'M', 0, 'Z', 0, 0],
+                  ['Z', 'M', 'Z', 'Z', 0, 0, 0],
+                  ['Z', 'X', 0, 0, 'Q', 0, 0],
+                  ['M', 0, 0, 0, 0, 0, 'Z'],
+                  ['M', 'X', 'Q', 'Q', 'Z', 'Z', 0]]
+
+    expected = false
+
+    assert_equal expected, board.game_tied?
+  end
+
+  def test_game_is_tied
+    board = Board.new
+    board.grid = [['M', 'X', 'N', 'M', 'N', 'Z', 'N'],
+                  ['Z', 'X', 'M','N', 'Z', 'N', 'N'],
+                  ['Z', 'M', 'Z', 'Z', 'N', 'S','S'],
+                  ['Z', 'X', 'S', 'S', 'Q', 'S', 'S'],
+                  ['M', 'L', 'L', 'S', 'L', 'L', 'Z'],
+                  ['M', 'X', 'Q', 'Q', 'Z', 'Z', 'S']]
+
+    expected = true
+
+    assert_equal expected, board.game_tied?
+  end
 end

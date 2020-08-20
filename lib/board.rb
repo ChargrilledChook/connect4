@@ -9,18 +9,21 @@ class Board
                 [[1, 0], [2, 1], [3, 2], [4, 3], [5, 4]],
                 [[2, 0], [3, 1], [4, 2], [5, 3]]].freeze
 
+  # Default values for the playing grid
   EMPTY_CELL = 0
+  WIDTH = 7
+  HEIGHT = 6
 
   # Amount of tokens in a row required to win
   WIN = 4
 
   def initialize
     @grid = build_grid
-    @grid_marker = Array(1..7)
+    @grid_marker = Array(1..WIDTH)
   end
 
   def build_grid
-    Array.new(6) { Array.new(7, EMPTY_CELL) }
+    Array.new(HEIGHT) { Array.new(WIDTH, EMPTY_CELL) }
   end
 
   def draw_grid
@@ -30,6 +33,10 @@ class Board
 
   def game_won?(player)
     horizontal_win?(player) || vertical_win?(player) || diag_win_right?(player) || diag_win_left?(player)
+  end
+
+  def game_tied?
+    @grid.all? { |line| line.none?(EMPTY_CELL) }
   end
 
   # Updates the grid with a drop down move. Will return true if succesful and false otherwise
