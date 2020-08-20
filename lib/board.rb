@@ -1,5 +1,7 @@
 # Holds data about gamestate
 class Board
+
+
   attr_accessor :grid
 
   DIAG_LINES = [[[0, 0], [1, 1], [2, 2], [3, 3], [4, 4], [5, 5]],
@@ -26,6 +28,7 @@ class Board
     Array.new(HEIGHT) { Array.new(WIDTH, EMPTY_CELL) }
   end
 
+  # TODO: fix me
   def draw_grid
     grid.each_index { |line| p grid[line] }
     p @grid_marker

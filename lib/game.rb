@@ -1,19 +1,23 @@
+require_relative 'display'
+
 # Holds other objects, responsible for playing a game of connect 4
 class Game
-  attr_accessor :board
-  attr_reader :p1, :p2
+  include Display
+
+  attr_reader :board
+
+  # attr_reader :p1, :p2
 
   Player = Struct.new(:name, :symbol)
 
   def initialize
     @p1 = Player.new('Player 1', 'X')
     @p2 = Player.new('Player 2', 'O')
-    @board = nil
   end
 
   # Welcome message / title
   def welcome
-    puts 'Welcome to connect 4!'
+    puts welcome_msg
     # menu can be inserted here later
     new_game
   end
@@ -23,8 +27,8 @@ class Game
   end
 
   def new_game
-    self.board = Board.new
-    board.draw_grid
+    @board = Board.new
+    @board.draw_grid
     _current_player = p1
     # until game_over? do
     # play_round(current_player)
@@ -37,7 +41,7 @@ class Game
     # get input
     # check / get input until it's right
     # update board data
-    # redraw board
+    board.game_won?(player) || board.game_tied?
   end
 
   def game_over?
