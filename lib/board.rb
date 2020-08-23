@@ -1,9 +1,10 @@
 # Holds data about gamestate
 class Board
-
-
   attr_accessor :grid
 
+  # These are mapped to arrays in order to calculate winning combos on diagonals.
+  # The advantage of this is a relatively simple win checking method,
+  # the downside is that these need to be changed for different sized boards.
   DIAG_LINES = [[[0, 0], [1, 1], [2, 2], [3, 3], [4, 4], [5, 5]],
                 [[0, 1], [1, 2], [2, 3], [3, 4], [4, 5], [5, 6]],
                 [[0, 2], [1, 3], [2, 4], [3, 5], [4, 6]],
