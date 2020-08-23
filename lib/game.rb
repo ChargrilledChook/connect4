@@ -4,9 +4,7 @@ require_relative 'display'
 class Game
   include Display
 
-  attr_reader :board
-
-  # attr_reader :p1, :p2
+  attr_reader :board, :p1, :p2
 
   Player = Struct.new(:name, :symbol)
 
