@@ -46,14 +46,12 @@ class Board
 
   # Updates the grid with a drop down move. Will return true if succesful and false otherwise
   def input_move(column, player)
-    idx = 1
     placed = false
-    until placed || idx > 6
-      if grid[-idx][column - 1] == EMPTY_CELL
-        grid[-idx][column - 1] = player
+    grid.reverse_each do |x|
+      if x[column - 1] == EMPTY_CELL && placed == false
+        x[column - 1] = player
         placed = true
       end
-      idx += 1
     end
     placed
   end
