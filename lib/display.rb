@@ -17,4 +17,16 @@ module Display
   def welcome_msg
     'Welcome to Connect 4!'
   end
+
+  def move_prompt(player)
+    "#{player}, it's your move!"
+  end
+
+  def win_msg(name)
+    "Congratulations, #{name}! You won!"
+  end
+
+  def tie_msg
+    'Well, that was anticlimatic. It\'s a draw.'
+  end
 end

@@ -13,10 +13,9 @@ class Game
     @p2 = Player.new('Player 2', 'O')
   end
 
-  # Welcome message / title
   def welcome
+    puts title
     puts welcome_msg
-    # menu can be inserted here later
     new_game
   end
 
@@ -26,24 +25,30 @@ class Game
 
   def new_game
     @board = Board.new
-    @board.draw_grid
-    _current_player = p1
-    # until game_over? do
-    # play_round(current_player)
-    # current_player = swap_player
-    # end
-    # ending
+    board.draw_grid
+    play_match
+  end
+
+  def play_match
+    current_player = p1
+    loop do
+      play_round(current_player)
+      break if board.game_won?(current_player.symbol) || board.game_tied?
+
+      current_player = swap_player(current_player)
+    end
+    puts game_over(current_player)
   end
 
   def play_round(player)
-    # get input
-    # check / get input until it's right
-    # update board data
-    board.game_won?(player) || board.game_tied?
+    puts move_prompt(player.name)
+    move = gets.chomp.to_i until (1..7).include?(move)
+    board.input_move(move, player.symbol)
+    board.draw_grid
   end
 
-  def game_over?
-    # #board.won? || board.drawn?
+  def game_over(player)
+    board.game_won?(player.symbol) ? win_msg(player.name) : tie_msg
   end
 
   def swap_player(player)
