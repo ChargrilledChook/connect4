@@ -33,8 +33,4 @@ module Display
   def fancy_grid(board)
     board.grid.map { |line| line.map { |cell| " #{cell} " }.join }
   end
-
-  def space
-    "\n\n"
-  end
 end

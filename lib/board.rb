@@ -33,7 +33,7 @@ class Board
   # TODO: fix me
   def draw_grid
     render = grid.map { |line| line.map { |cell| " #{cell} " }.join }
-    render << (1..WIDTH).map { |mark| " #{mark} " }.join
+    render << (1..WIDTH).map { |cell| " #{cell} " }.join
     render
   end
 

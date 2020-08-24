@@ -1,4 +1,5 @@
 require_relative 'display'
+require 'colorize'
 
 # Holds other objects, responsible for playing a game of connect 4
 class Game
@@ -9,8 +10,8 @@ class Game
   Player = Struct.new(:name, :symbol)
 
   def initialize
-    @p1 = Player.new('Player 1', 'X')
-    @p2 = Player.new('Player 2', 'M')
+    @p1 = Player.new('Player 1'.red, 'X'.red)
+    @p2 = Player.new('Player 2'.yellow, 'M'.yellow)
   end
 
   def welcome
@@ -44,8 +45,7 @@ class Game
     print move_prompt(player.name)
     move = gets.chomp.to_i until (1..7).include?(move)
     board.input_move(move, player.symbol)
-    puts space
-    puts board.draw_grid
+    render_board
   end
 
   def game_over(player)
@@ -54,5 +54,12 @@ class Game
 
   def swap_player(player)
     player == p1 ? p2 : p1
+  end
+
+  private
+
+  def render_board
+    puts "\n\n"
+    puts board.draw_grid
   end
 end
