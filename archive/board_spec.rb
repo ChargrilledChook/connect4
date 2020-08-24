@@ -5,7 +5,6 @@ describe Board do
     it 'returns the correct default values' do
       expect(Board.new.grid).to eq [[0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0],
                                     [0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0]]
-
     end
   end
 
@@ -19,8 +18,7 @@ describe Board do
         [0, 0, 0, 0, 0, 0, 0]
         [0, 0, 0, 0, 0, 0, 0]
         [1, 2, 3, 4, 5, 6, 7]
-      )
-      ).to_stdout
+      )).to_stdout
     end
   end
 end
