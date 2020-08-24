@@ -1,7 +1,6 @@
 # Holds data about gamestate
 class Board
-  attr_reader :width
-  attr_accessor :grid, :grid_marker
+  attr_accessor :grid
 
   # These are mapped to arrays in order to calculate winning combos on diagonals.
   # The advantage of this is a relatively simple win checking method,
