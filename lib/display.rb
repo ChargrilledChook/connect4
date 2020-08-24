@@ -15,18 +15,26 @@ module Display
   end
 
   def welcome_msg
-    'Welcome to Connect 4!'
+    "\nWelcome to Connect 4!\n\n"
   end
 
   def move_prompt(player)
-    "#{player}, it's your move!"
+    "\n#{player}, it's your move! "
   end
 
   def win_msg(name)
-    "Congratulations, #{name}! You won!"
+    "\nCongratulations, #{name}! You won!"
   end
 
   def tie_msg
-    'Well, that was anticlimatic. It\'s a draw.'
+    "\nWell, that was anticlimatic. It's a draw."
+  end
+
+  def fancy_grid(board)
+    board.grid.map { |line| line.map { |cell| " #{cell} " }.join }
+  end
+
+  def space
+    "\n\n"
   end
 end

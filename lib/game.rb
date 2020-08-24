@@ -10,7 +10,7 @@ class Game
 
   def initialize
     @p1 = Player.new('Player 1', 'X')
-    @p2 = Player.new('Player 2', 'O')
+    @p2 = Player.new('Player 2', 'M')
   end
 
   def welcome
@@ -25,7 +25,7 @@ class Game
 
   def new_game
     @board = Board.new
-    board.draw_grid
+    puts board.draw_grid
     play_match
   end
 
@@ -41,10 +41,11 @@ class Game
   end
 
   def play_round(player)
-    puts move_prompt(player.name)
+    print move_prompt(player.name)
     move = gets.chomp.to_i until (1..7).include?(move)
     board.input_move(move, player.symbol)
-    board.draw_grid
+    puts space
+    puts board.draw_grid
   end
 
   def game_over(player)

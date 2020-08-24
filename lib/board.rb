@@ -1,6 +1,7 @@
 # Holds data about gamestate
 class Board
-  attr_accessor :grid
+  attr_reader :width
+  attr_accessor :grid, :grid_marker
 
   # These are mapped to arrays in order to calculate winning combos on diagonals.
   # The advantage of this is a relatively simple win checking method,
@@ -22,7 +23,7 @@ class Board
 
   def initialize
     @grid = build_grid
-    @grid_marker = Array(1..WIDTH)
+    @grid_marker = Array(1..WIDTH).join(' ')
   end
 
   def build_grid
@@ -31,8 +32,9 @@ class Board
 
   # TODO: fix me
   def draw_grid
-    grid.each_index { |line| p grid[line] }
-    p @grid_marker
+    render = grid.map { |line| line.map { |cell| " #{cell} " }.join }
+    render << (1..WIDTH).map { |mark| " #{mark} " }.join
+    render
   end
 
   def game_won?(player)
@@ -73,5 +75,9 @@ class Board
 
   def diag_win_left?(player)
     DIAG_LINES.map { |line| line.map { |x, y| grid.reverse[x][y] } }.any? { |line| line.join.include?(player * WIN) }
+  end
+
+  def grid_marker
+
   end
 end
