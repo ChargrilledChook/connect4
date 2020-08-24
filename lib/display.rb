@@ -29,8 +29,4 @@ module Display
   def tie_msg
     "\nWell, that was anticlimatic. It's a draw."
   end
-
-  def fancy_grid(board)
-    board.grid.map { |line| line.map { |cell| " #{cell} " }.join }
-  end
 end

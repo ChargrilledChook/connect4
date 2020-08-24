@@ -30,7 +30,6 @@ class Board
     Array.new(HEIGHT) { Array.new(WIDTH, EMPTY_CELL) }
   end
 
-  # TODO: fix me
   def draw_grid
     render = grid.map { |line| line.map { |cell| " #{cell} " }.join }
     render << (1..WIDTH).map { |cell| " #{cell} " }.join
@@ -75,9 +74,5 @@ class Board
 
   def diag_win_left?(player)
     DIAG_LINES.map { |line| line.map { |x, y| grid.reverse[x][y] } }.any? { |line| line.join.include?(player * WIN) }
-  end
-
-  def grid_marker
-
   end
 end
