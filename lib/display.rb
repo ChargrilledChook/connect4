@@ -18,8 +18,8 @@ module Display
     "\nWelcome to Connect 4!\n\n"
   end
 
-  def move_prompt(player)
-    "\n#{player}, it's your move! "
+  def move_prompt_msg(player)
+    "\n#{player}, it's your move! => "
   end
 
   def win_msg(name)
@@ -28,5 +28,9 @@ module Display
 
   def tie_msg
     "\nWell, that was anticlimatic. It's a draw."
+  end
+
+  def reprompt_msg
+    "\nPlease enter a valid column between 1 and 7! => "
   end
 end

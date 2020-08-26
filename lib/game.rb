@@ -42,9 +42,8 @@ class Game
   end
 
   def play_round(player)
-    print move_prompt(player.name)
-    move = gets.chomp.to_i until (1..7).include?(move)
-    board.input_move(move, player.symbol)
+    print move_prompt_msg(player.name)
+    board.input_move(select_column, player.symbol)
     render_board
   end
 
@@ -61,5 +60,14 @@ class Game
   def render_board
     puts "\n\n"
     puts board.draw_grid
+  end
+
+  def select_column
+    move = gets.chomp.to_i
+    until (1..7).include?(move)
+      print reprompt_msg
+      move = gets.chomp.to_i
+    end
+    move
   end
 end
