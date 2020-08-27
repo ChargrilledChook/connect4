@@ -33,4 +33,12 @@ module Display
   def reprompt_msg
     "\nPlease enter a valid column between 1 and 7! => "
   end
+
+  def play_again_msg
+    "\nWould you like to play again? [Y / N] => "
+  end
+
+  def column_full_msg
+    "\nOops! That column is full! Pick another one! => "
+  end
 end

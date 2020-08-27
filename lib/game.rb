@@ -39,11 +39,13 @@ class Game
       current_player = swap_player(current_player)
     end
     puts game_over(current_player)
+    # TODO: play_again?
   end
 
   def play_round(player)
     print move_prompt_msg(player.name)
-    board.input_move(select_column, player.symbol)
+    check_column(player)
+    #board.input_move(select_column, player.symbol)
     render_board
   end
 
@@ -55,7 +57,20 @@ class Game
     player == p1 ? p2 : p1
   end
 
+  # TODO
+  def play_again?
+    puts play_again_msg
+  end
+
   private
+
+  def check_column(player)
+    valid = board.input_move(select_column, player.symbol)
+    return if valid
+
+    print column_full_msg
+    check_column(player)
+  end
 
   def render_board
     puts "\n\n"
