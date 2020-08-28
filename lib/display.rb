@@ -41,4 +41,12 @@ module Display
   def column_full_msg
     "\nOops! That column is full! Pick another one! => "
   end
+
+  def rules_msg
+    "\nThis is a game for two people. Get 4 in a row to win!"
+  end
+
+  def any_key_msg
+    "\nEnter any key to begin."
+  end
 end

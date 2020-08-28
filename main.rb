@@ -1,4 +1,5 @@
 require './lib/board'
 require './lib/game'
+require './lib/menu'
 
-Game.new.welcome
+Menu.new
