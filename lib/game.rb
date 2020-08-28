@@ -12,21 +12,11 @@ class Game
   def initialize
     @p1 = Player.new('Player 1'.red, 'X'.red)
     @p2 = Player.new('Player 2'.yellow, 'M'.yellow)
-  end
-
-  def welcome
-    puts title
-    puts welcome_msg
-    new_game
-  end
-
-  def menu
-    # TODO
+    @board = Board.new
   end
 
   def new_game
-    @board = Board.new
-    puts board.draw_grid
+    render_board
     play_match
   end
 
@@ -39,7 +29,6 @@ class Game
       current_player = swap_player(current_player)
     end
     puts game_over(current_player)
-    # TODO: play_again?
   end
 
   def play_round(player)
@@ -54,11 +43,6 @@ class Game
 
   def swap_player(player)
     player == p1 ? p2 : p1
-  end
-
-  # TODO
-  def play_again?
-    puts play_again_msg
   end
 
   private

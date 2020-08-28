@@ -47,6 +47,10 @@ module Display
   end
 
   def any_key_msg
-    "\nEnter any key to begin."
+    "\nEnter any key to continue."
+  end
+
+  def exit_msg
+    "\nThanks for playing!"
   end
 end
