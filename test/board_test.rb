@@ -404,15 +404,13 @@ class BoardTest < Minitest::Test
 
   def test_game_is_tied
     board = Board.new
-    board.grid = [['M', 'X', 'N', 'M', 'N', 'Z', 'N'],
-                  ['Z', 'X', 'M','N', 'Z', 'N', 'N'],
-                  ['Z', 'M', 'Z', 'Z', 'N', 'S','S'],
-                  ['Z', 'X', 'S', 'S', 'Q', 'S', 'S'],
-                  ['M', 'L', 'L', 'S', 'L', 'L', 'Z'],
-                  ['M', 'X', 'Q', 'Q', 'Z', 'Z', 'S']]
+    board.grid = [%w[M X N M N Z N],
+                  %w[Z X M N Z N N],
+                  %w[Z M Z Z N S S],
+                  %w[Z X S S Q S S],
+                  %w[M L L S L L Z],
+                  %w[M X Q Q Z Z S]]
 
-    expected = true
-
-    assert_equal true, board.game_tied?
+    assert board.game_tied?
   end
 end
