@@ -13,20 +13,18 @@ class Menu
     puts rules_msg
     continue_prompt
     new_game
-    play_again
   end
 
   def new_game
     Game.new.new_game
+    play_again
   end
 
   def play_again
     print play_again_msg
     choice = gets.chomp.downcase
     case choice
-    when 'y'
-      new_game
-      play_again
+    when 'y' then new_game
     when 'n' then puts exit_msg
     else play_again
     end
