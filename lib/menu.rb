@@ -1,6 +1,6 @@
 require_relative 'display'
 
-# A wrapper than initializes, restarts and exits games
+# A wrapper that initializes, restarts and exits sessions
 class Menu
   include Display
 
