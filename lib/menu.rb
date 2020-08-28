@@ -13,10 +13,10 @@ class Menu
     puts welcome_msg
     puts rules_msg
     continue_prompt
-    new_game
+    new_session
   end
 
-  def new_game
+  def new_session
     Game.new.new_game
     play_again
   end
@@ -25,7 +25,7 @@ class Menu
     print play_again_msg
     choice = gets.chomp.downcase
     case choice
-    when 'y' then new_game
+    when 'y' then new_session
     when 'n' then puts exit_msg
     else          play_again
     end
