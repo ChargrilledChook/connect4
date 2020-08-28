@@ -1,3 +1,4 @@
+# Retired in place of a struct
 class Player
   attr_reader :name
   attr_accessor :symbol

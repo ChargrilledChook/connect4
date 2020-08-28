@@ -1,5 +1,6 @@
 require_relative 'display'
 
+# A wrapper than initializes, restarts and exits games
 class Menu
   include Display
 
@@ -26,7 +27,7 @@ class Menu
     case choice
     when 'y' then new_game
     when 'n' then puts exit_msg
-    else play_again
+    else          play_again
     end
   end
 
