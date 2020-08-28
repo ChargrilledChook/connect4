@@ -413,6 +413,6 @@ class BoardTest < Minitest::Test
 
     expected = true
 
-    assert_equal expected, board.game_tied?
+    assert_equal true, board.game_tied?
   end
 end
