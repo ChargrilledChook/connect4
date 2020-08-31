@@ -26,7 +26,6 @@ class Board
     @width = 7
     @empty_cell = 0
     @grid = build_grid
-    @grid_marker = Array(1..WIDTH).join(' ')
   end
 
   def build_grid
