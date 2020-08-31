@@ -11,15 +11,17 @@ class Player
     @symbol = symbol
   end
 
-  def check_column(board)
-    valid = board.input_move(select_column, symbol)
+  def select_column(board)
+    valid = board.input_move(input_move, symbol)
     return if valid
 
     print column_full_msg
-    check_column(board)
+    select_column(board)
   end
 
-  def select_column
+  private
+
+  def input_move
     move = gets.chomp.to_i
     until (1..7).include?(move)
       print reprompt_msg

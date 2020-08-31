@@ -31,7 +31,7 @@ class Game
 
   def play_round
     print move_prompt_msg(current_player.name)
-    current_player.check_column(board)
+    current_player.select_column(board)
     render_board
   end
 
