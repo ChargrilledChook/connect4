@@ -20,7 +20,7 @@ class Referee
   end
 
   def game_tied?
-    board.grid.all? { |line| line.none?(empty_cell) }
+    board.grid.all? { |line| line.none?(board.empty_cell) }
   end
 
   private
@@ -34,10 +34,10 @@ class Referee
   end
 
   def diag_win_right?(player)
-    DIAG_LINES.map { |line| line.map { |x, y| grid[x][y] } }.any? { |line| line.join.include?(player * win) }
+    DIAG_LINES.map { |line| line.map { |x, y| board.grid[x][y] } }.any? { |line| line.join.include?(player * win) }
   end
 
   def diag_win_left?(player)
-    DIAG_LINES.map { |line| line.map { |x, y| grid.reverse[x][y] } }.any? { |line| line.join.include?(player * win) }
+    DIAG_LINES.map { |line| line.map { |x, y| board.grid.reverse[x][y] } }.any? { |line| line.join.include?(player * win) }
   end
 end

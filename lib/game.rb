@@ -5,13 +5,14 @@ require 'colorize'
 class Game
   include Display
 
-  attr_reader :board, :p1, :p2
+  attr_reader :board, :p1, :p2, :ref
 
   def initialize
     @p1 = Player.new('Player 1'.red, 'X'.red)
     @p2 = Player.new('Player 2'.yellow, 'M'.yellow)
-    @current_player = p1
     @board = Board.new
+    @ref = Referee.new(board)
+    @current_player = p1
   end
 
   def new_game
@@ -23,7 +24,7 @@ class Game
   def play_match
     loop do
       play_round
-      break if board.game_won?(current_player.symbol) || board.game_tied?
+      break if ref.game_won?(current_player.symbol) || ref.game_tied?
 
       self.current_player = swap_player
     end
