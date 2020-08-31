@@ -12,7 +12,7 @@ class Player
   end
 
   def select_column(board)
-    valid = board.input_move(input_move, symbol)
+    valid = board.input_move(choose_move, symbol)
     return if valid
 
     print column_full_msg
@@ -21,7 +21,7 @@ class Player
 
   private
 
-  def input_move
+  def choose_move
     move = gets.chomp.to_i
     until (1..7).include?(move)
       print reprompt_msg
