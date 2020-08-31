@@ -21,6 +21,10 @@ class Board
   WIN = 4
 
   def initialize
+    @win = 4
+    @height = 6
+    @width = 7
+    @empty_cell = 0
     @grid = build_grid
     @grid_marker = Array(1..WIDTH).join(' ')
   end
