@@ -1,9 +1,8 @@
 # Holds data about gamestate
 class Board
-  attr_reader :empty_cell, :width, :height, :win, :grid
+  attr_reader :empty_cell, :width, :height, :grid
 
   def initialize
-    @win = 4
     @height = 6
     @width = 7
     @empty_cell = 0

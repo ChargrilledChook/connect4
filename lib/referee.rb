@@ -1,3 +1,4 @@
+# Inspects a board and returns whether the game is won or tied.
 class Referee
   attr_reader :width, :height, :win, :board
 

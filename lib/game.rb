@@ -5,14 +5,14 @@ require 'colorize'
 class Game
   include Display
 
-  attr_reader :board, :p1, :p2, :ref
+  attr_reader :board, :player1, :player2, :ref
 
   def initialize
-    @p1 = Player.new('Player 1'.red, 'X'.red)
-    @p2 = Player.new('Player 2'.yellow, 'M'.yellow)
+    @player1 = Player.new('Player 1'.red, 'X'.red)
+    @player2 = Player.new('Player 2'.yellow, 'M'.yellow)
     @board = Board.new
     @ref = Referee.new(board)
-    @current_player = p1
+    @current_player = player1
   end
 
   def new_game
@@ -41,7 +41,7 @@ class Game
   end
 
   def swap_player
-    current_player == p1 ? p2 : p1
+    current_player == player1 ? player2 : player1
   end
 
   private
