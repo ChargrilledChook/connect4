@@ -6,9 +6,6 @@ class Game
   include Display
 
   attr_reader :board, :p1, :p2
-  attr_accessor :current_player
-
-  #Player = Struct.new(:name, :symbol)
 
   def initialize
     @p1 = Player.new('Player 1'.red, 'X'.red)
@@ -47,6 +44,8 @@ class Game
   end
 
   private
+
+  attr_accessor :current_player
 
   def check_column
     valid = board.input_move(select_column, current_player.symbol)
