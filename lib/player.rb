@@ -29,4 +29,8 @@ class Player
     end
     move
   end
+
+  def user_input
+    gets.chomp.to_i
+  end
 end
