@@ -8,4 +8,6 @@ class MenuTest < Minitest::Test
   # Restarts a game correctly
 
   # Exits game correctly
+
+  # Reprompts if input wrong
 end
