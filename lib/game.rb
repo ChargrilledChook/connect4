@@ -6,53 +6,54 @@ class Game
   include Display
 
   attr_reader :board, :p1, :p2
+  attr_accessor :current_player
 
-  Player = Struct.new(:name, :symbol)
+  #Player = Struct.new(:name, :symbol)
 
   def initialize
     @p1 = Player.new('Player 1'.red, 'X'.red)
     @p2 = Player.new('Player 2'.yellow, 'M'.yellow)
+    @current_player = p1
     @board = Board.new
   end
 
   def new_game
     render_board
     play_match
+    puts game_over
   end
 
   def play_match
-    current_player = p1
     loop do
-      play_round(current_player)
+      play_round
       break if board.game_won?(current_player.symbol) || board.game_tied?
 
-      current_player = swap_player(current_player)
+      self.current_player = swap_player
     end
-    puts game_over(current_player)
   end
 
-  def play_round(player)
-    print move_prompt_msg(player.name)
-    check_column(player)
+  def play_round
+    print move_prompt_msg(current_player.name)
+    check_column
     render_board
   end
 
-  def game_over(player)
-    board.game_won?(player.symbol) ? win_msg(player.name) : tie_msg
+  def game_over
+    board.game_won?(current_player.symbol) ? win_msg(current_player.name) : tie_msg
   end
 
-  def swap_player(player)
-    player == p1 ? p2 : p1
+  def swap_player
+    current_player == p1 ? p2 : p1
   end
 
   private
 
-  def check_column(player)
-    valid = board.input_move(select_column, player.symbol)
+  def check_column
+    valid = board.input_move(select_column, current_player.symbol)
     return if valid
 
     print column_full_msg
-    check_column(player)
+    check_column
   end
 
   def select_column
