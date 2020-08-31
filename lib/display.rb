@@ -18,8 +18,8 @@ module Display
     "\nWelcome to Connect 4!\n\n"
   end
 
-  def move_prompt_msg(player)
-    "\n#{player}, it's your move! => "
+  def move_prompt_msg(name)
+    "\n#{name}, it's your move! => "
   end
 
   def win_msg(name)
@@ -47,7 +47,7 @@ module Display
   end
 
   def any_key_msg
-    "\nEnter any key to continue."
+    "\nPress enter to continue."
   end
 
   def exit_msg
