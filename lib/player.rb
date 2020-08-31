@@ -1,6 +1,6 @@
 require_relative 'display'
 
-# Retired in place of a struct
+# Responsible for getting user input and sending it to the game board
 class Player
   include Display
 
