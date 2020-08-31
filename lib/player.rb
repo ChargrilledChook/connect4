@@ -11,12 +11,12 @@ class Player
     @symbol = symbol
   end
 
-  def check_column
+  def check_column(board)
     valid = board.input_move(select_column, symbol)
     return if valid
 
     print column_full_msg
-    check_column
+    check_column(board)
   end
 
   def select_column

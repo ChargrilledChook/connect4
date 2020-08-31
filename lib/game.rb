@@ -31,7 +31,7 @@ class Game
 
   def play_round
     print move_prompt_msg(current_player.name)
-    check_column
+    current_player.check_column(board)
     render_board
   end
 
@@ -46,23 +46,6 @@ class Game
   private
 
   attr_accessor :current_player
-
-  def check_column
-    valid = board.input_move(select_column, current_player.symbol)
-    return if valid
-
-    print column_full_msg
-    check_column
-  end
-
-  def select_column
-    move = gets.chomp.to_i
-    until (1..7).include?(move)
-      print reprompt_msg
-      move = gets.chomp.to_i
-    end
-    move
-  end
 
   def render_board
     puts "\n\n"
