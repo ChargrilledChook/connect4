@@ -11,7 +11,7 @@ class RefereeTest < Minitest::Test
   end
 
   def test_false_when_game_not_won1
-    # # skip
+    # skip
     player = 'X'
     board = Board.new
     ref = Referee.new(board)
@@ -26,7 +26,7 @@ class RefereeTest < Minitest::Test
   end
 
   def test_false_when_game_not_won2
-    # # skip
+    # skip
     player = 'X'
     board = Board.new
     ref = Referee.new(board)
@@ -41,7 +41,7 @@ class RefereeTest < Minitest::Test
   end
 
   def test_hoziontal_win1
-    # # skip
+    # skip
     player = 'X'
     board = Board.new
     ref = Referee.new(board)
@@ -56,7 +56,7 @@ class RefereeTest < Minitest::Test
   end
 
   def test_hoziontal_win2
-    # # skip
+    # skip
     player = '0'
     board = Board.new
     ref = Referee.new(board)
