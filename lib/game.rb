@@ -37,7 +37,7 @@ class Game
   end
 
   def game_over
-    board.game_won?(current_player.symbol) ? win_msg(current_player.name) : tie_msg
+    ref.game_won?(current_player.symbol) ? win_msg(current_player.name) : tie_msg
   end
 
   def swap_player
