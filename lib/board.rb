@@ -1,8 +1,6 @@
 # Holds data about gamestate
 class Board
-  attr_reader :empty_cell, :width, :height, :win
-
-  attr_accessor :grid
+  attr_reader :empty_cell, :width, :height, :win, :grid
 
   def initialize
     @win = 4
@@ -25,12 +23,16 @@ class Board
   # Updates the grid with a drop down move. Will return true if succesful and false otherwise
   def input_move(column, player)
     placed = false
-    grid.reverse_each do |x|
-      if x[column - 1] == empty_cell && placed == false
-        x[column - 1] = player
+    grid.reverse_each do |row|
+      if row[column - 1] == empty_cell && placed == false
+        row[column - 1] = player
         placed = true
       end
     end
     placed
   end
+
+  private
+
+  attr_writer :grid
 end
