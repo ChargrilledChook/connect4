@@ -16,6 +16,8 @@ class Menu
     new_session
   end
 
+  private
+
   def new_session
     Game.new.new_game
     play_again
