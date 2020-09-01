@@ -50,8 +50,6 @@ class BoardTest < Minitest::Test
     refute board.input_move(1, player)
   end
 
-
-
   def test_another_input_move_stacked
     player1 = 'X'
     player2 = 'Q'
