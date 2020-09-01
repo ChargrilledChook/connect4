@@ -8,6 +8,7 @@ class MenuTest < Minitest::Test
   end
 
   def test_plays_one_new_game_correctly
+    skip
     io = StringIO.new
     io.puts 'n'
     io.rewind
@@ -21,6 +22,7 @@ class MenuTest < Minitest::Test
   end
 
   def test_restarts_game_correctly
+    skip
     io = StringIO.new
     io.puts 'y'
     io.puts 'n'
@@ -36,6 +38,7 @@ class MenuTest < Minitest::Test
   end
 
   def test_restarts_multiple
+    skip
     io = StringIO.new
     io.puts 'y'
     io.puts 'y'
@@ -53,6 +56,7 @@ class MenuTest < Minitest::Test
   end
 
   def test_reprompts_with_wrong_input
+    skip
     io = StringIO.new
     io.puts 'foo'
     io.puts 'y'
