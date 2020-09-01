@@ -35,7 +35,24 @@ class BoardTest < Minitest::Test
     assert board.input_move(1, player)
   end
 
-  def test_input_move_stacked1
+  def test_move_return_false_if_column_full
+    player = 'X'
+    board = Board.new
+    board_state = [['X', 0, 0, 0, 0, 0, 0],
+                  ['X', 0, 0, 0, 0, 0, 0],
+                  ['Q', 0, 0, 0, 0, 0, 0],
+                  ['Q', 0, 0, 0, 0, 0, 0],
+                  ['Q', 0, 0, 0, 0, 0, 0],
+                  ['X', 0, 0, 0, 0, 0, 0]]
+
+    board.instance_variable_set(:@grid, board_state)
+
+    refute board.input_move(1, player)
+  end
+
+
+
+  def test_another_input_move_stacked
     player1 = 'X'
     player2 = 'Q'
     board = Board.new
