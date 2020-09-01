@@ -50,13 +50,13 @@ class RefereeTest < Minitest::Test
     board = Board.new
     ref = Referee.new(board)
     expected = [[0, 0, 0, 0, 0, 0, 0],
-                  [0, 0, 0, 0, 0, 0, 0],
-                  [0, 0, 0, 0, 0, 0, 0],
-                  [0, 0, 0, 0, 0, 0, 0],
-                  [0, 0, 0, 'Q', 'Q', 0, 0],
-                  [0, 'X', 'X', 'X', 'X', 'Q', 0]]
+                [0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 'Q', 'Q', 0, 0],
+                [0, 'X', 'X', 'X', 'X', 'Q', 0]]
 
-                  board.instance_variable_set(:@grid, expected)
+    board.instance_variable_set(:@grid, expected)
 
     assert ref.game_won?(player)
   end
@@ -67,13 +67,13 @@ class RefereeTest < Minitest::Test
     board = Board.new
     ref = Referee.new(board)
     expected = [[0, 'Q', 'Q', 'Q', 'Q', 0, 0],
-                  [0, 0, 0, 0, 0, 0, 0],
-                  [0, 0, 0, 0, 0, 0, 0],
-                  [0, 0, 0, 0, 0, 0, 0],
-                  [0, 0, 0, 'Q', 'Q', 0, 0],
-                  [0, 'X', 'X', 'X', '0', 'Q', 0]]
+                [0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 'Q', 'Q', 0, 0],
+                [0, 'X', 'X', 'X', '0', 'Q', 0]]
 
-                  board.instance_variable_set(:@grid, expected)
+    board.instance_variable_set(:@grid, expected)
 
     assert ref.game_won?(player)
   end
@@ -84,13 +84,13 @@ class RefereeTest < Minitest::Test
     board = Board.new
     ref = Referee.new(board)
     expected = [[0, 0, 'Q', 'Q', 'Q', 0, 0],
-                  ['X', 0, 0, 0, 0, 0, 0],
-                  ['X', 0, 0, 0, 0, 0, 0],
-                  ['X', 0, 0, 0, 0, 0, 0],
-                  ['X', 0, 0, 'Q', 'Q', 0, 0],
-                  [0, 'X', 'X', 'X', '0', 'Q', 0]]
+                ['X', 0, 0, 0, 0, 0, 0],
+                ['X', 0, 0, 0, 0, 0, 0],
+                ['X', 0, 0, 0, 0, 0, 0],
+                ['X', 0, 0, 'Q', 'Q', 0, 0],
+                [0, 'X', 'X', 'X', '0', 'Q', 0]]
 
-                  board.instance_variable_set(:@grid, expected)
+    board.instance_variable_set(:@grid, expected)
 
     assert ref.game_won?(player)
   end
@@ -101,13 +101,13 @@ class RefereeTest < Minitest::Test
     board = Board.new
     ref = Referee.new(board)
     expected = [[0, 0, 0, 0, 0, 0, 0],
-                  [0, 0, 0, 0, 0, 0, 0],
-                  [0, 0, 0, 'Q', 0, 0, 0],
-                  [0, 0, 0, 'Q', 0, 0, 0],
-                  [0, 0, 0, 'Q', 0, 0, 0],
-                  [0, 0, 0, 'Q', 0, 0, 0]]
+                [0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 'Q', 0, 0, 0],
+                [0, 0, 0, 'Q', 0, 0, 0],
+                [0, 0, 0, 'Q', 0, 0, 0],
+                [0, 0, 0, 'Q', 0, 0, 0]]
 
-                  board.instance_variable_set(:@grid, expected)
+    board.instance_variable_set(:@grid, expected)
 
     assert ref.game_won?(player)
   end
@@ -118,13 +118,13 @@ class RefereeTest < Minitest::Test
     board = Board.new
     ref = Referee.new(board)
     expected = [[0, 0, 0, 0, 0, 0, 0],
-                  [0, 0, 0, 'Q', 0, 0, 0],
-                  [0, 0, 0, 'X', 0, 0, 0],
-                  [0, 0, 0, 'Q', 0, 0, 0],
-                  [0, 0, 0, 'Q', 0, 0, 0],
-                  [0, 0, 0, 'Q', 0, 0, 0]]
+                [0, 0, 0, 'Q', 0, 0, 0],
+                [0, 0, 0, 'X', 0, 0, 0],
+                [0, 0, 0, 'Q', 0, 0, 0],
+                [0, 0, 0, 'Q', 0, 0, 0],
+                [0, 0, 0, 'Q', 0, 0, 0]]
 
-                  board.instance_variable_set(:@grid, expected)
+    board.instance_variable_set(:@grid, expected)
 
     refute ref.game_won?(player)
   end
@@ -135,13 +135,13 @@ class RefereeTest < Minitest::Test
     board = Board.new
     ref = Referee.new(board)
     expected = [[0, 0, 0, 0, 0, 0, 0],
-                  [0, 0, 0, 'Q', 0, 0, 0],
-                  [0, 0, 0, 0, 0, 0, 0],
-                  [0, 0, 0, 'Q', 0, 0, 0],
-                  [0, 0, 0, 'Q', 0, 0, 0],
-                  [0, 0, 0, 'Q', 0, 0, 0]]
+                [0, 0, 0, 'Q', 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 'Q', 0, 0, 0],
+                [0, 0, 0, 'Q', 0, 0, 0],
+                [0, 0, 0, 'Q', 0, 0, 0]]
 
-                  board.instance_variable_set(:@grid, expected)
+    board.instance_variable_set(:@grid, expected)
 
     refute ref.game_won?(player)
   end
@@ -152,13 +152,13 @@ class RefereeTest < Minitest::Test
     board = Board.new
     ref = Referee.new(board)
     expected = [['D', 0, 0, 0, 0, 0, 0],
-                  [0, 'D', 0, 0, 0, 0, 0],
-                  [0, 0, 'D', 0, 0, 0, 0],
-                  [0, 0, 0, 'D', 0, 0, 0],
-                  [0, 0, 0, 0, 0, 0, 0],
-                  [0, 0, 0, 0, 0, 0, 0]]
+                [0, 'D', 0, 0, 0, 0, 0],
+                [0, 0, 'D', 0, 0, 0, 0],
+                [0, 0, 0, 'D', 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0]]
 
-                  board.instance_variable_set(:@grid, expected)
+    board.instance_variable_set(:@grid, expected)
 
     assert ref.game_won?(player)
   end
@@ -169,13 +169,13 @@ class RefereeTest < Minitest::Test
     board = Board.new
     ref = Referee.new(board)
     expected = [['D', 0, 0, 'P', 0, 0, 0],
-                  [0, 'D', 0, 0, 'P', 0, 0],
-                  [0, 0, 'D', 0, 0, 'P', 0],
-                  [0, 0, 0, 0, 0, 0, 'P'],
-                  [0, 0, 0, 0, 0, 0, 0],
-                  [0, 0, 0, 0, 0, 0, 0]]
+                [0, 'D', 0, 0, 'P', 0, 0],
+                [0, 0, 'D', 0, 0, 'P', 0],
+                [0, 0, 0, 0, 0, 0, 'P'],
+                [0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0]]
 
-                  board.instance_variable_set(:@grid, expected)
+    board.instance_variable_set(:@grid, expected)
 
     assert ref.game_won?(player)
   end
@@ -186,13 +186,13 @@ class RefereeTest < Minitest::Test
     board = Board.new
     ref = Referee.new(board)
     expected = [['D', 0, 0, 'P', 0, 0, 0],
-                  [0, 'D', 0, 0, 'P', 0, 0],
-                  ['Q', 0, 'D', 0, 0, 'P', 0],
-                  [0, 'Q', 0, 0, 0, 0, 0],
-                  [0, 0, 'Q', 0, 0, 0, 0],
-                  [0, 0, 0, 'Q', 0, 0, 0]]
+                [0, 'D', 0, 0, 'P', 0, 0],
+                ['Q', 0, 'D', 0, 0, 'P', 0],
+                [0, 'Q', 0, 0, 0, 0, 0],
+                [0, 0, 'Q', 0, 0, 0, 0],
+                [0, 0, 0, 'Q', 0, 0, 0]]
 
-                  board.instance_variable_set(:@grid, expected)
+    board.instance_variable_set(:@grid, expected)
 
     assert ref.game_won?(player)
   end
@@ -203,13 +203,13 @@ class RefereeTest < Minitest::Test
     board = Board.new
     ref = Referee.new(board)
     expected = [['D', 0, 0, 'P', 0, 0, 0],
-                  [0, 'D', 0, 0, 'P', 0, 0],
-                  ['Q', 0, 'D', 0, 0, 'P', 0],
-                  [0, 'Q', 0, 0, 'F', 0, 0],
-                  [0, 0, 'Q', 0, 0, 'F', 0],
-                  [0, 0, 0, 0, 0, 0, 'F']]
+                [0, 'D', 0, 0, 'P', 0, 0],
+                ['Q', 0, 'D', 0, 0, 'P', 0],
+                [0, 'Q', 0, 0, 'F', 0, 0],
+                [0, 0, 'Q', 0, 0, 'F', 0],
+                [0, 0, 0, 0, 0, 0, 'F']]
 
-                  board.instance_variable_set(:@grid, expected)
+    board.instance_variable_set(:@grid, expected)
 
     refute ref.game_won?(player)
   end
@@ -220,13 +220,13 @@ class RefereeTest < Minitest::Test
     board = Board.new
     ref = Referee.new(board)
     expected = [[0, 'D', 0, 0, 0, 0, 0],
-                  [0, 0, 'D', 0, 0, 0, 0],
-                  [0, 0, 0, 'D', 0, 0, 0],
-                  [0, 0, 0, 0, 0, 0, 0],
-                  [0, 0, 0, 0, 0, 'D', 0],
-                  [0, 0, 0, 0, 0, 0, 'D']]
+                [0, 0, 'D', 0, 0, 0, 0],
+                [0, 0, 0, 'D', 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 'D', 0],
+                [0, 0, 0, 0, 0, 0, 'D']]
 
-                  board.instance_variable_set(:@grid, expected)
+    board.instance_variable_set(:@grid, expected)
 
     refute ref.game_won?(player)
   end
@@ -237,13 +237,13 @@ class RefereeTest < Minitest::Test
     board = Board.new
     ref = Referee.new(board)
     expected = [[0, 0, 0, 0, 0, 0, 0],
-                  [0, 0, 0, 0, 0, 0, 0],
-                  [0, 0, 0, 'Q', 0, 0, 0],
-                  [0, 0, 'Q', 0, 0, 0, 0],
-                  [0, 'Q', 0, 0, 0, 0, 0],
-                  ['Q', 0, 0, 0, 0, 0, 0]]
+                [0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 'Q', 0, 0, 0],
+                [0, 0, 'Q', 0, 0, 0, 0],
+                [0, 'Q', 0, 0, 0, 0, 0],
+                ['Q', 0, 0, 0, 0, 0, 0]]
 
-                  board.instance_variable_set(:@grid, expected)
+    board.instance_variable_set(:@grid, expected)
 
     assert ref.game_won?(player)
   end
@@ -254,13 +254,13 @@ class RefereeTest < Minitest::Test
     board = Board.new
     ref = Referee.new(board)
     expected = [[0, 0, 0, 0, 0, 'Z', 0],
-                  [0, 0, 0, 0, 'Z', 0, 0],
-                  [0, 0, 0, 'Z', 0, 0, 0],
-                  [0, 0, 'Z', 0, 0, 0, 0],
-                  [0, 0, 0, 0, 0, 0, 0],
-                  [0, 0, 0, 0, 0, 0, 0]]
+                [0, 0, 0, 0, 'Z', 0, 0],
+                [0, 0, 0, 'Z', 0, 0, 0],
+                [0, 0, 'Z', 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0]]
 
-                  board.instance_variable_set(:@grid, expected)
+    board.instance_variable_set(:@grid, expected)
 
     assert ref.game_won?(player)
   end
@@ -271,11 +271,11 @@ class RefereeTest < Minitest::Test
     board = Board.new
     ref = Referee.new(board)
     expected = [[0, 0, 0, 'M', 0, 'Z', 0],
-                  [0, 0, 'M', 0, 'Z', 0, 0],
-                  [0, 'M', 0, 'Z', 0, 0, 0],
-                  ['M', 0, 0, 0, 0, 0, 0],
-                  [0, 0, 0, 0, 0, 0, 0],
-                  [0, 0, 0, 0, 0, 0, 0]]
+                [0, 0, 'M', 0, 'Z', 0, 0],
+                [0, 'M', 0, 'Z', 0, 0, 0],
+                ['M', 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0]]
 
     board.instance_variable_set(:@grid, expected)
 
@@ -287,13 +287,13 @@ class RefereeTest < Minitest::Test
     board = Board.new
     ref = Referee.new(board)
     expected = [['M', 'X', 0, 'M', 0, 'Z', 0],
-                  ['Z', 'X', 'M', 0, 'Z', 0, 0],
-                  ['Z', 'M', 'Z', 'Z', 0, 0, 0],
-                  ['Z', 'X', 0, 0, 'Q', 0, 0],
-                  ['M', 0, 0, 0, 0, 0, 'Z'],
-                  ['M', 'X', 'Q', 'Q', 'Z', 'Z', 0]]
+                ['Z', 'X', 'M', 0, 'Z', 0, 0],
+                ['Z', 'M', 'Z', 'Z', 0, 0, 0],
+                ['Z', 'X', 0, 0, 'Q', 0, 0],
+                ['M', 0, 0, 0, 0, 0, 'Z'],
+                ['M', 'X', 'Q', 'Q', 'Z', 'Z', 0]]
 
-                  board.instance_variable_set(:@grid, expected)
+    board.instance_variable_set(:@grid, expected)
 
     refute ref.game_tied?
   end
@@ -303,13 +303,13 @@ class RefereeTest < Minitest::Test
     board = Board.new
     ref = Referee.new(board)
     expected = [%w[M X N M N Z N],
-                  %w[Z X M N Z N N],
-                  %w[Z M Z Z N S S],
-                  %w[Z X S S Q S S],
-                  %w[M L L S L L Z],
-                  %w[M X Q Q Z Z S]]
+                %w[Z X M N Z N N],
+                %w[Z M Z Z N S S],
+                %w[Z X S S Q S S],
+                %w[M L L S L L Z],
+                %w[M X Q Q Z Z S]]
 
-                  board.instance_variable_set(:@grid, expected)
+    board.instance_variable_set(:@grid, expected)
 
     assert ref.game_tied?
   end
