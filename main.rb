@@ -4,4 +4,4 @@ require './lib/menu'
 require './lib/player'
 require './lib/referee'
 
-Menu.new
+Menu.new.welcome

@@ -4,11 +4,6 @@ require_relative 'display'
 class Menu
   include Display
 
-  def initialize(game = Game.new)
-    @game = game
-    #welcome
-  end
-
   def welcome
     puts title
     puts welcome_msg
@@ -17,11 +12,8 @@ class Menu
     new_session
   end
 
-  #private
-
-  def new_session
-    #@game = Game.new
-    @game.new_game
+  def new_session(game = Game.new)
+    game.new_game
     play_again
   end
 
