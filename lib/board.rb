@@ -22,6 +22,8 @@ class Board
   # Updates the grid with a drop down move. Will return true if succesful and false otherwise
   def input_move(column, player)
     placed = false
+    return false unless (1..width).include?(column)
+
     grid.reverse_each do |row|
       if row[column - 1] == empty_cell && placed == false
         row[column - 1] = player
