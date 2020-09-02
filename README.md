@@ -11,5 +11,5 @@ Should probably learn about rake though
 
 # Todo / Future updates
 
-* Wrap in a menu object and add menu for (re)starting
-* Extract current player to an instance variable
+* Add game tests
+* Add menu tests or justify why they're not needed
