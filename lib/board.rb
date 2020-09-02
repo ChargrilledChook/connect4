@@ -37,3 +37,11 @@ class Board
 
   attr_writer :grid
 end
+
+# def input_move(column, player)
+#   return false unless (1..width).include?(column)
+
+#   cell = grid.reverse_each.index { |row| row[column - 1] == empty_cell }
+#   grid[cell] = player
+#   grid[cell]
+# end
