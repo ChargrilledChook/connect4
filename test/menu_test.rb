@@ -2,6 +2,13 @@ require 'minitest/autorun'
 require_relative '../lib/menu'
 require 'stringio'
 
+# While I did get this tests working and the rough shape of them is probably ok,
+# I couldn't figure out how to properly inject the game object and its mock to
+# be able to properly test it. Currently Either the tests work and the game breaks or vice versa.
+# Given this is a relatively simple class, with very little logic I'll leave aside testing these for now.
+# Testing them manually is a relatively easy affair and was ultimately much simpler and time effective than these tests.
+# Good practice though! Will make me think a bit more about dependency injection next time.
+
 class MenuTest < Minitest::Test
   def setup
     @game = Minitest::Mock.new
@@ -64,7 +71,6 @@ class MenuTest < Minitest::Test
     io.rewind
     $stdin = io
 
-    @game.expect(:new_game, true)
     @game.expect(:new_game, true)
 
     Menu.new.new_session(@game)

@@ -48,7 +48,7 @@ class PlayerTest < Minitest::Test
     io.rewind
     $stdin = io
 
-    @board.expect(:input_move, false, [0, 'X'])
+    @board.expect(:input_move, false, [0, 'X']) # 0 because string values.to_i default to 0
 
     @board.expect(:input_move, true, [2, 'X'])
 
