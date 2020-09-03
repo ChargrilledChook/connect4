@@ -35,10 +35,12 @@ class Referee
   end
 
   def diag_win_right?(player)
-    DIAG_LINES.map { |line| line.map { |x, y| board.grid[x][y] } }.any? { |line| line.join.include?(player * win) }
+    lines = DIAG_LINES.map { |line| line.map { |x, y| board.grid[x][y] } }
+    lines.any? { |line| line.join.include?(player * win) }
   end
 
   def diag_win_left?(player)
-    DIAG_LINES.map { |line| line.map { |x, y| board.grid.reverse[x][y] } }.any? { |line| line.join.include?(player * win) }
+    lines = DIAG_LINES.map { |line| line.map { |x, y| board.grid.reverse[x][y] } }
+    lines.any? { |line| line.join.include?(player * win) }
   end
 end
