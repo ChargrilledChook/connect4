@@ -7,7 +7,7 @@ Small hack to run whole test suite (run on command line):
 
 for file in test/*.rb; do ruby $file; done
 
-Should probably learn about rake though
+Also added a rake file which can run the whole suite by typing rake in the console.
 
 # Todo / Future updates
 

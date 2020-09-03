@@ -1,17 +1,21 @@
 require_relative 'display'
 require 'colorize'
 
-# Holds other objects, responsible for playing a game of connect 4
+# Holds other objects, will loop a game until ref object tells it game is won or tied
 class Game
   include Display
 
   attr_reader :board, :player1, :player2, :ref
 
-  def initialize
-    @player1 = Player.new('Player 1'.red, 'X'.red)
-    @player2 = Player.new('Player 2'.yellow, 'M'.yellow)
-    @board = Board.new
-    @ref = Referee.new(board)
+  def initialize(player1 = Player.new('Player 1'.red, 'X'.red),
+                 player2 = Player.new('Player 2'.yellow, 'M'.yellow),
+                 board = Board.new,
+                 ref = Referee.new(board))
+
+    @player1 = player1
+    @player2 = player2
+    @board = board
+    @ref = ref
     @current_player = player1
   end
 
