@@ -1,6 +1,8 @@
 # connect4
 An assignment for the testing section of [The Odin Project's](https://www.theodinproject.com/courses/ruby-programming/lessons/testing-your-ruby-code#project-tdd-connect-four) ruby curriculum.
 
+[Play on replit](https://repl.it/@HappyFrog/connect4#lib/game.rb)
+
 ## About
 
 A simple command line version of the classic game [Connect 4](https://en.wikipedia.org/wiki/Connect_Four) for two players. Press run on Replit to play. Originally designed with colour but doesn't work on replit, sorry. Get four in a row to win.
