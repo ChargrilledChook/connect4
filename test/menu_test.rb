@@ -15,15 +15,16 @@ class MenuTest < Minitest::Test
   end
 
   def test_plays_one_new_game_correctly
-    skip
+    #skip
     io = StringIO.new
     io.puts 'n'
     io.rewind
     $stdin = io
 
+    @game.expect(:new, true)
     @game.expect(:new_game, true)
 
-    Menu.new.new_session(@game)
+    Menu.new(@game).new_session
 
     @game.verify
   end
@@ -39,7 +40,7 @@ class MenuTest < Minitest::Test
     @game.expect(:new_game, true)
     @game.expect(:new_game, true)
 
-    Menu.new.new_session(@game)
+    Menu.new(@game)
 
     @game.verify
   end
@@ -57,7 +58,7 @@ class MenuTest < Minitest::Test
     @game.expect(:new_game, true)
     @game.expect(:new_game, true)
 
-    Menu.new.new_session(@game)
+    Menu.new(@game)
 
     @game.verify
   end
@@ -73,7 +74,7 @@ class MenuTest < Minitest::Test
 
     @game.expect(:new_game, true)
 
-    Menu.new.new_session(@game)
+    Menu.new(@game)
 
     @game.verify
   end

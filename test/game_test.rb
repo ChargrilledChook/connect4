@@ -12,6 +12,16 @@ class GameTest < Minitest::Test
     @ref = Minitest::Mock.new
   end
   # Loops if game not over
+  def test_loops_and_swaps_players_till_game_over
+    @player1.expect(:symbol, 'X')
+    @player2.expect(:symbol, 'O')
+    @ref.expect(:game_won?, false, [@player1.symbol])
+    @ref.expect(:game_tied?, false)
+
+    @ref.expect(:game_won?, true, [@player2.symbol])
+
+    @ref.verify
+  end
 
   # Stops / calls game_over if game is over
 
