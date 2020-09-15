@@ -1,5 +1,3 @@
-require_relative 'display'
-
 # A wrapper that initializes, restarts and exits sessions
 class Menu
   include Display

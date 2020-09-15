@@ -1,7 +1,5 @@
-require './lib/board'
-require './lib/game'
-require './lib/menu'
-require './lib/player'
-require './lib/referee'
+require 'require_all'
+require 'colorize'
+require_all 'lib'
 
 Menu.new.welcome

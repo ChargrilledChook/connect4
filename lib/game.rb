@@ -1,5 +1,4 @@
-require_relative 'display'
-require 'colorize'
+#require_relative 'display'
 
 # Holds other objects, will loop a game until ref object tells it game is won or tied
 class Game

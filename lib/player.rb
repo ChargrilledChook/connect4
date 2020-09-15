@@ -1,5 +1,3 @@
-require_relative 'display'
-
 # Responsible for getting user input and sending it to the game board
 class Player
   include Display
